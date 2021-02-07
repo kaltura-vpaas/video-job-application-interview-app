@@ -1,6 +1,5 @@
-# Name of the Project here
-This section should describe the project in highlevel and provide introduction to what this repository is all about and who it is relevant for.  
-Provide a highlevel breakdown of features that matter in this project and known limitations this project doesn't handle.
+# PHP App for Video Job Applications and Video Interview Booking
+This is PHP (and HTML5/JS) application is a a sample reference app showing how to utilize the Kaltura Media Services and Experience Components to build a 
 
 # Documentation and guides
 * [**Frequently Asked Questions**](http://linktodoc.com)
