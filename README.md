@@ -11,7 +11,7 @@ This PHP (and HTML5/JS) application is a sample reference implementation showing
 ### Setting up
 * [Register for a free Kaltura account](https://corp.kaltura.com/video-paas/registration/)
 * Clone the files to your web directory `git clone https://github.com/kaltura-vpaas/video-job-application-interview-app.git .`
-* Copy `config.php.template` to `config.php`, edit to fill the params as instructed in the inline comments (disallow access to this file from the web) 
+* Copy `config.php.template` to `config.php`, edit to fill the params as instructed in the inline comments (disallow access to `config.php` from the web) 
 * Point your browser to `index.html`
 
 ## Learn more about Kaltura Media Services and Experience Components (aka Kaltura VPaaS) 
