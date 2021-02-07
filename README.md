@@ -14,7 +14,7 @@ This PHP (and HTML5/JS) application is a sample reference implementation showing
 * Copy `config.php.template` to `config.php`, edit to fill the params as instructed in the inline comments (disallow access to this file from the web) 
 * Point your browser to `index.html`
 
-## Learn more about Kaltura Media Services (aka VPaaS) and Experience Components 
+## Learn more about Kaltura Media Services and Experience Components (aka Kaltura VPaaS) 
 
 * [Get a free Kaltura Media Services account](https://corp.kaltura.com/video-paas/registration/)
 * [Learn about the Kaltura Media Servcies API](https://developer.kaltura.com/api-docs)
