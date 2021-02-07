@@ -1,0 +1,14 @@
+<?php
+$partnerId = 00000; //https://kmc.kaltura.com/index.php/kmcng/settings/integrationSettings
+$apiAdminSecret = '1a1d1fg1fjhgda68aysgdahsb7636626'; //https://kmc.kaltura.com/index.php/kmcng/settings/integrationSettings (Admin Secret)
+$expire = 60 * 60 * 24; //one day
+$recorderPlayerId = 000000; //https://kmc.kaltura.com/index.php/kmcng/studio/v3
+$editorPlayerId = 000000; //https://kmc.kaltura.com/index.php/kmcng/studio/v2
+$appName = 'kaltura-job-application'; //used to designate your application name, this can be used in the Analytics later to differentiate usage across different apps (such as website vs. mobile iOS vs. mobile Android vs. partner site)
+$appDomain = 'vidrecruite.kaltura.me'; // the domain to track this playback session to
+//generate the Kaltura Session for secure and tracked playback session
+$privacyContext = null; //'YourCategoryName'; //if your entries are inside a category with a defined privacyContext, this must be specified too
+$sessionType = 0; // 0 for USER Session, 2 for Admin Session
+$kalturaAppsFrameworkBaseUrl = 'https://' . $partnerId . '.kaf.kaltura.com';
+$kalturaMeetingRoomLaunchBaseUrl = $kalturaAppsFrameworkBaseUrl . '/virtualEvent/launch?ks=';
+$kalturaShortLinkBaseUrl = 'https://kaltura.com/tiny/';

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Kaltura Job Application</title>
+
+    <script src="./js/modernizer.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/theme.css" type="text/css" media="all" />
+
+    <link rel="icon" href="./css/images/fav_icon.png" sizes="32x32" />
+    <link rel="icon" href="./css/images/fav_icon.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="./css/images/fav_icon.png" />
+    <meta name="msapplication-TileImage" content="./css/images/fav_icon.png" />
+
+    <script src="./js/pristine.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.js"></script>
+    <script src="./js/fetch-comeetjobs.js"></script>
+</head>
+
+<body>
+    <div id="maincontainer" class="main">
+        <h1>Kaltura Video Job Application</h1>
+        <p>To apply for a job at Kaltura, please fill the details below, and click next to start recording your application.</p>
+	<p>You can review all available positions on our <a href="https://www.comeet.com/jobs/kaltura/E2.00D" target="_blank">comeet open positions list</a>.</p>
+        <section class="form-container">
+            <form id="candiateform" method="post" action="./record.php">
+                <input type="hidden" />
+                <div class="form-group">
+                    <input class="form-control" id="candidate_name" name="candidate_name" type="text" placeholder="your full name *" data-pristine-required></input>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" id="candidate_email" name="candidate_email" type="email" placeholder="your email *" data-pristine-required></input>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" id="candidate_linkedin" name="candidate_linkedin" type="url" placeholder="your linkedin profile (https://linkedin.com/in/your_name) *" data-pristine-required pattern="/^http(s)?:\/\/(.{2,4}\.)?linkedin\.com\/in\/.{4,30}$/"></input>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" id="candidate_phone" name="candidate_phone" type="tel" pattern="/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g" placeholder="your phone number *" data-pristine-required></input>
+                </div>
+                <div class="form-group" style="margin-bottom: 6em;">
+                    <select multiple id="jobpos" name="jobpos[]" data-pristine-required class="form-control">
+                    </select>
+                </div>
+
+                <div class="form-group inline-label">
+                    <input id="agreeterms" type="checkbox" name="agreeterms" required data-pristine-required-message="You must accept the terms and conditions" />
+                    <label for="agreeterms">I accept the terms and conditions *</label><br />
+                </div>
+                <div class="form-group">
+                    <input id="submitbtn" name="submit_button" class="submitbtn" value="Send Application" type="submit"></input>
+                </div>
+            </form>
+        </section>
+    </div>
+    <div id="browserNotSupportedMsg" class="main" style="display:none;">
+        <h1>Kaltura Video Job Application</h1>
+        <p>
+            Hey you! We'd love to hear from you. <br />
+            Please use either of the options below to submit your job application:</p>
+        <ul>
+            <li>Use Google Chrome. Here is the <a href="https://support.google.com/chrome/answer/95346?hl=en">download link.</a></li>
+            <li>Use Firefox. Here is the <a href="http://www.mozilla.org/en-US/firefox/new/">download link.</a></li>
+            <li>Use Microsoft Edge. Here is the <a href="https://www.microsoft.com/en-us/edge/">download link.</a></li>
+        </ul>
+        <p>Thanks!</p>
+    </div>
+    <script>
+        var pristine;
+        var form;
+        window.addEventListener('DOMContentLoaded', (event) => {
+            // check browser support first...
+            var supported = true;
+            for (var feature in Modernizr) {
+                if (typeof Modernizr[feature] === "boolean" && Modernizr[feature] == false) {
+                    supported = false;
+                    break;
+                }
+            }
+            if (Modernizr['video']['vp9'] == '') supported = false;
+            if (supported == false) {
+                var maincontainer = document.getElementById("maincontainer");
+                var browserNotSupportedMsg = document.getElementById("browserNotSupportedMsg");
+                maincontainer.style.display = 'none';
+                browserNotSupportedMsg.style.display = 'block';
+            }
+
+            //populate job postings from comeet API
+            populateJobPositionsSelect();
+
+            form = document.getElementById("candiateform");
+            pristine = new Pristine(form);
+
+            form.addEventListener('submit', function(event) {
+                var is_valid = pristine.validate();
+                if (is_valid == false) {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
