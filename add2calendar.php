@@ -15,12 +15,12 @@ $startDateInput = filter_var($_GET["from"], FILTER_SANITIZE_NUMBER_INT); // see:
 $endDateInput = false;
 // see: $inputDateFormat --> MUST be a time AFTER $startDate
 if (isset($_GET["to"])) {
-	$endDateInput = filter_var($_GET["to"], FILTER_SANITIZE_NUMBER_INT);
+    $endDateInput = filter_var($_GET["to"], FILTER_SANITIZE_NUMBER_INT);
 }
 $duration = false;
 // DateInterval format, e.g. PT1H
 if (isset($_GET["duration"])) {
-	$duration = filter_var($_GET["duration"], FILTER_SANITIZE_STRING);
+    $duration = filter_var($_GET["duration"], FILTER_SANITIZE_STRING);
 }
 if (
     $title === false || $description === false || $address === false || $startDateInput === false ||
@@ -75,17 +75,27 @@ $dateTimeFormat = $allDay ? $dateFormat : $dateTimeFormat;
 $googleCalUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE';
 $googleCalUrl .= '&dates=' . $startDate->format($dateTimeFormat) . '/' . $endDate->format($dateTimeFormat);
 $googleCalUrl .= '&text=' . rawurlencode($title);
-if ($description) $googleCalUrl .= '&details=' . rawurlencode($description);
-if ($address) $googleCalUrl .= '&location=' . rawurlencode($address);
+if ($description) {
+    $googleCalUrl .= '&details=' . rawurlencode($description);
+}
+if ($address) {
+    $googleCalUrl .= '&location=' . rawurlencode($address);
+}
 // ----------------------------------------------------------------
 // Outlook365 Calendar
 $outlook365Url = 'https://outlook.live.com/calendar/deeplink/compose?path=/calendar/action/compose'; //&rru=addevent causes + signs
 $outlook365Url .= '&startdt=' . $startDate->format($outlookDateTimeFormat);
 $outlook365Url .= '&enddt=' . $endDate->format($outlookDateTimeFormat);
-if ($allDay) $outlook365Url .= '&allday=true';
+if ($allDay) {
+    $outlook365Url .= '&allday=true';
+}
 $outlook365Url .= '&subject=' . rawurlencode($title);
-if ($description) $outlook365Url .= '&body=' . rawurlencode($description);
-if ($address) $outlook365Url .= '&location=' . rawurlencode($address);
+if ($description) {
+    $outlook365Url .= '&body=' . rawurlencode($description);
+}
+if ($address) {
+    $outlook365Url .= '&location=' . rawurlencode($address);
+}
 // ----------------------------------------------------------------
 // Yahoo! Calendar
 $yahooUrl = 'https://calendar.yahoo.com/?v=60&view=d&type=20';
@@ -110,8 +120,12 @@ if ($allDay && $startDate->diff($endDate)->days === 1) {
     }
 }
 $yahooUrl .= '&title=' . rawurlencode($title);
-if ($description) $yahooUrl .= '&desc=' . rawurlencode($description);
-if ($address) $yahooUrl .= '&in_loc=' . rawurlencode($address);
+if ($description) {
+    $yahooUrl .= '&desc=' . rawurlencode($description);
+}
+if ($address) {
+    $yahooUrl .= '&in_loc=' . rawurlencode($address);
+}
 // ----------------------------------------------------------------
 // ICS Download
 // See: https://tools.ietf.org/html/rfc5545#section-3.8.4.7
@@ -139,8 +153,12 @@ if ($allDay) {
     $IcsUrlParts[] = 'DTSTART;TZID=' . $startDate->format($dateTimeFormat2Use);
     $IcsUrlParts[] = 'DTEND;TZID=' . $endDate->format($dateTimeFormat2Use);
 }
-if ($description) $IcsUrlParts[] = 'DESCRIPTION:' . addcslashes($description, "\r\n,;");
-if ($address) $IcsUrlParts[] = 'LOCATION:' . addcslashes($address, "\r\n,;");
+if ($description) {
+    $IcsUrlParts[] = 'DESCRIPTION:' . addcslashes($description, "\r\n,;");
+}
+if ($address) {
+    $IcsUrlParts[] = 'LOCATION:' . addcslashes($address, "\r\n,;");
+}
 $IcsUrlParts[] = 'END:VEVENT';
 $IcsUrlParts[] = 'END:VCALENDAR';
 $IcsUrl = 'data:text/calendar;charset=utf8;base64,' . base64_encode(implode("\r\n", $IcsUrlParts));

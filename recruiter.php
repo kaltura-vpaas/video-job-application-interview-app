@@ -2,9 +2,13 @@
 require_once('./config.php');
 require_once('./utils.php');
 $recruiterKs = false;
-if (isset($_POST['ks'])) $recruiterKs = filter_var($_POST['ks'], FILTER_SANITIZE_STRING);
+if (isset($_POST['ks'])) {
+    $recruiterKs = filter_var($_POST['ks'], FILTER_SANITIZE_STRING);
+}
 $uid = false;
-if (isset($_POST['uid'])) $uid = filter_var($_POST['uid'], FILTER_SANITIZE_EMAIL);
+if (isset($_POST['uid'])) {
+    $uid = filter_var($_POST['uid'], FILTER_SANITIZE_EMAIL);
+}
 if ($recruiterKs === false || $uid === false) {
     redirect_to_page('recruiterlogin.php');
 }
