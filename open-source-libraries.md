@@ -1,4 +1,4 @@
 # Open Source & 3rd-party components in this project
-* Name of library X: [license name](http://linktolicensefile.com)
-* Name of library Y: [license name](http://linktolicensefile.com)
-* Name of library Z: [license name](http://linktolicensefile.com)
+* [Form Validation JS Library](https://pristine.js.org/) [MIT](https://github.com/sha256/Pristine/blob/master/LICENSE)
+* [Modernizer Browser Feature Detection](https://modernizr.com/): [MIT](https://github.com/Modernizr/Modernizr/blob/master/LICENSE.md)
+* [Free ICO fonts Icomoon](https://icomoon.io/): [CC BY 4.0](https://github.com/Keyamoon/IcoMoon-Free/blob/master/License.txt)
