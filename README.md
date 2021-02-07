@@ -1,13 +1,26 @@
 # Video Job Applications and Video Interviews
+
 This PHP (and HTML5/JS) application is a sample reference implementation showing how to utilize the Kaltura Media Services and Experience Components to build a video recruiting app where job applicants can submit a 5min introduction video (and edit it) as part of their job application and then schedule and participate in an embedded video meeting with the recruiting interviewer.  
+
+# Setting up
+
+### Requirements
+* PHP (5.3+ according to phpcompatinfo, but was tested on PHP 7.4+)
+* A modern browser (Chrome/FF/Edge)
+
+### Setting up
+* [Register for a free Kaltura account](https://corp.kaltura.com/video-paas/registration/)
+* Clone the files to your web directory `git clone https://github.com/kaltura-vpaas/video-job-application-interview-app.git .`
+* Copy `config.php.template` to `config.php`, edit to fill the params as instructed in the inline comments (disallow access to this file from the web) 
+* Point your browser to `index.html`
 
 # Learn more about Kaltura Media Services (aka VPaaS) and Experience Components 
 
-* [Get a free Kaltura Media Services account](https://corp.kaltura.com/video-paas/registration/). 
-* [Learn about the Kaltura Media Servcies API](https://developer.kaltura.com/api-docs). 
-* [Kaltura Express Video Recorder (webcam browser based video recorder)](https://github.com/kaltura/express-recorder). 
-* [Kaltura Embedded Web Video Editor](https://github.com/kaltura-vpaas/kaltura-editor-app-embed). 
-* [Kaltura Embedded Video Meetings (RTC Video Room)](https://github.com/kaltura-vpaas/virtual-meeting-rooms). 
+* [Get a free Kaltura Media Services account](https://corp.kaltura.com/video-paas/registration/)
+* [Learn about the Kaltura Media Servcies API](https://developer.kaltura.com/api-docs)
+* [Kaltura Express Video Recorder (webcam browser based video recorder)](https://github.com/kaltura/express-recorder)
+* [Kaltura Embedded Web Video Editor](https://github.com/kaltura-vpaas/kaltura-editor-app-embed)
+* [Kaltura Embedded Video Meetings (RTC Video Room)](https://github.com/kaltura-vpaas/virtual-meeting-rooms)
 
 # How you can help (guidelines for contributors) 
 Thank you for helping Kaltura grow! If you'd like to contribute please follow these steps:
